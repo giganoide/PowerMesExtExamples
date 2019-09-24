@@ -1,0 +1,12 @@
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\bin\Debug\PowerMesScheduledActivity.MesExt.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\bin\Debug\PowerMesScheduledActivity.MesExt.pdb
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\bin\Debug\Atys.PowerMES.Contracts.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\bin\Debug\Atys.PowerMES.Foundation.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\bin\Debug\Atys.PowerMES.Support.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\bin\Debug\Atys.PowerMES.Contracts.xml
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\bin\Debug\Atys.PowerMES.Foundation.xml
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\obj\Debug\025_ExternalCommands.csproj.CoreCompileInputs.cache
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\obj\Debug\025_ExternalCommands.csproj.CopyComplete
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\obj\Debug\PowerMesScheduledActivity.MesExt.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\obj\Debug\PowerMesScheduledActivity.MesExt.pdb
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\025_ExternalCommands\obj\Debug\025_ExternalCommands.csprojAssemblyReference.cache

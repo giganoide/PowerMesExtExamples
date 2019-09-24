@@ -1,0 +1,12 @@
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\bin\Debug\PowerMesFileSystemWatcher.MesExt.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\bin\Debug\PowerMesFileSystemWatcher.MesExt.pdb
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\bin\Debug\Atys.PowerMES.Contracts.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\bin\Debug\Atys.PowerMES.Foundation.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\bin\Debug\Atys.PowerMES.Support.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\bin\Debug\Atys.PowerMES.Contracts.xml
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\bin\Debug\Atys.PowerMES.Foundation.xml
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\obj\Debug\045_FileSystemWatcher.csprojAssemblyReference.cache
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\obj\Debug\045_FileSystemWatcher.csproj.CoreCompileInputs.cache
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\obj\Debug\045_FileSystemWatcher.csproj.CopyComplete
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\obj\Debug\PowerMesFileSystemWatcher.MesExt.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\045_FileSystemWatcher\obj\Debug\PowerMesFileSystemWatcher.MesExt.pdb

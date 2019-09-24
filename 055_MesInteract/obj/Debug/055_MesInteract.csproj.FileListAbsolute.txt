@@ -1,0 +1,11 @@
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\bin\Debug\PowerMesMesInteract.MesExt.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\bin\Debug\PowerMesMesInteract.MesExt.pdb
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\bin\Debug\Atys.PowerMES.Contracts.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\bin\Debug\Atys.PowerMES.Foundation.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\bin\Debug\Atys.PowerMES.Support.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\bin\Debug\Atys.PowerMES.Contracts.xml
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\bin\Debug\Atys.PowerMES.Foundation.xml
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\obj\Debug\055_MesInteract.csproj.CoreCompileInputs.cache
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\obj\Debug\055_MesInteract.csproj.CopyComplete
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\obj\Debug\PowerMesMesInteract.MesExt.dll
+C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\055_MesInteract\obj\Debug\PowerMesMesInteract.MesExt.pdb
