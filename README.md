@@ -1,2 +1,2 @@
 # PowerMesExtExamples
-Esempi di codice per creare extension PowerSuite
+Esempi di codice per creare extension PowerMES
