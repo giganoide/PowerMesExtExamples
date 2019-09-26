@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/9nahe9go69uk1s28?svg=true)](https://ci.appveyor.com/project/LucaBonini/powermesextexamples)
+
 # PowerMesExtExamples
 Esempi di codice per creare extension PowerMES
 
