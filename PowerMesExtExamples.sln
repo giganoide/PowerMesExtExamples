@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "055_MesInteract", "055_MesI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "060_NicimIteract", "060_NicimIteract\060_NicimIteract.csproj", "{9EB2D841-0F64-474F-89BD-27ED6277DE19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "005_Foundations", "005_Foundations\005_Foundations.csproj", "{D9645B3A-78A4-4251-8654-73494112AB92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +86,10 @@ Global
 		{9EB2D841-0F64-474F-89BD-27ED6277DE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EB2D841-0F64-474F-89BD-27ED6277DE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EB2D841-0F64-474F-89BD-27ED6277DE19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9645B3A-78A4-4251-8654-73494112AB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9645B3A-78A4-4251-8654-73494112AB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9645B3A-78A4-4251-8654-73494112AB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9645B3A-78A4-4251-8654-73494112AB92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

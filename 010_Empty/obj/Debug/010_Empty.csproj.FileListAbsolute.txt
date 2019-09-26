@@ -6,3 +6,9 @@ C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Pe
 C:\Program Files (x86)\Atys\PowerMES\Extensions\PowerMesEmpty\PowerMesEmpty.MesExt.dll
 C:\Program Files (x86)\Atys\PowerMES\Extensions\PowerMesEmpty\PowerMesEmpty.MesExt.pdb
 C:\Users\l.bonini\OneDrive - TeamSystem S.p.A\Documents\Corsi\Power Suite – Personalizzazione Applicativi\Examples\PowerMesExtExamples\010_Empty\obj\Debug\010_Empty.csprojAssemblyReference.cache
+C:\ProjectsGit\PowerMesExtExamples\010_Empty\bin\Debug\PowerMesEmpty.MesExt.dll
+C:\ProjectsGit\PowerMesExtExamples\010_Empty\bin\Debug\PowerMesEmpty.MesExt.pdb
+C:\ProjectsGit\PowerMesExtExamples\010_Empty\obj\Debug\010_Empty.csprojAssemblyReference.cache
+C:\ProjectsGit\PowerMesExtExamples\010_Empty\obj\Debug\010_Empty.csproj.CoreCompileInputs.cache
+C:\ProjectsGit\PowerMesExtExamples\010_Empty\obj\Debug\PowerMesEmpty.MesExt.dll
+C:\ProjectsGit\PowerMesExtExamples\010_Empty\obj\Debug\PowerMesEmpty.MesExt.pdb
