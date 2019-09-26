@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "060_NicimIteract", "060_Nic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "005_Foundations", "005_Foundations\005_Foundations.csproj", "{D9645B3A-78A4-4251-8654-73494112AB92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "052_PowerDeviceInteract", "052_PowerDeviceInteract\052_PowerDeviceInteract.csproj", "{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{D9645B3A-78A4-4251-8654-73494112AB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9645B3A-78A4-4251-8654-73494112AB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9645B3A-78A4-4251-8654-73494112AB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
