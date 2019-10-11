@@ -185,9 +185,9 @@ namespace TeamSystem.Customizations
 
             const string dvcInstance = "localhost";
 
-            const string qtyAddress = @"{{PLC}}{{A73}}{{DB501.DBW{0}}}"; //quantità prevista
-            const string orderAddress = @"{{PLC}}{{A73}}{{DB501.DBB{0}[10]}}"; //ordine di lavoro
-            const string runningMachineAddress = @"{PLC}{A74}{DB101.DBX0.0}"; //bool - macchina in marcia
+            const string qtyAddress = @"{OPCV1}{TESTOPC}{storage.numeric.reg02}"; //quantità prevista
+            const string orderAddress = @"{OPCV1}{TESTOPC}{storage.string.reg01}"; //ordine di lavoro
+            const string runningMachineAddress = @"{OPCV1}{TESTOPC}{storage.bool.reg01}"; //bool - macchina in marcia
 
             /*
              * prima di tutto leggo il valore da PowerDevice di macchina in marcia
