@@ -52,7 +52,7 @@ namespace TeamSystem.Customizations
 
         #endregion
 
-        #region export measurement sets recurring activity
+        #region recurring activity
 
         private void SetupActivity()
         {
