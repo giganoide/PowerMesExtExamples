@@ -55,7 +55,8 @@ namespace TeamSystem.Customizations
         /// </summary>
         public void Shutdown()
         {
-
+            this._MesManager.Controller.BeforeProcessingEvent -= this.Controller_BeforeProcessingEvent;
+            this._MesManager.ResourcesHandler.ResourceGlobalStateChanged -= this.ResourcesHandler_ResourceGlobalStateChanged;
         }
 
         #endregion
