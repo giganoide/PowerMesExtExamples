@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "005_Foundations", "005_Foun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "052_PowerDeviceInteract", "052_PowerDeviceInteract\052_PowerDeviceInteract.csproj", "{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "046_FileSystemWatcher2", "046_FileSystemWatcher2\046_FileSystemWatcher2.csproj", "{4C30E3FA-25A9-4098-83D4-E485A927A28A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,10 @@ Global
 		{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D319CA-501E-42C5-BE32-95B81C8DDBB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C30E3FA-25A9-4098-83D4-E485A927A28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C30E3FA-25A9-4098-83D4-E485A927A28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C30E3FA-25A9-4098-83D4-E485A927A28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C30E3FA-25A9-4098-83D4-E485A927A28A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
