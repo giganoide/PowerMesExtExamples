@@ -50,8 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DieCastingDataAccessHub.cs" />
+    <Compile Include="DieCastingProductionStroke.cs" />
+    <Compile Include="AttributesHelpers.cs" />
+    <Compile Include="LocalConstants.cs" />
+    <Compile Include="MachineProductionMemento.cs" />
     <Compile Include="MyDbMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\CREATE_PRODUZ.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\DIECASTING.bak" />
+    <None Include="SQL\produz_HC50_1.xls" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

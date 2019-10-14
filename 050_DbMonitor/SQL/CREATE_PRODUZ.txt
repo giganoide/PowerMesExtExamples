@@ -1,0 +1,84 @@
+USE [DatiCQ]
+GO
+
+/****** Object:  Table [dbo].[PRODUZ]    Script Date: 29/07/2019 16:47:16 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PRODUZ](
+	[Nr] [float] NULL,
+	[IDCQ] [nvarchar](10) NULL,
+	[DateACQ] [nvarchar](10) NULL,
+	[TimeACQ] [nvarchar](8) NULL,
+	[Order_] [nvarchar](50) NULL,
+	[Name_] [nvarchar](50) NULL,
+	[Pz_tot_] [int] NULL,
+	[Pz_prod_] [int] NULL,
+	[Nr_piece_] [int] NULL,
+	[TC_] [decimal](18, 2) NULL,
+	[Cycle_] [decimal](18, 0) NULL,
+	[tF_] [decimal](18, 2) NULL,
+	[Mode_] [int] NULL,
+	[User_] [nvarchar](20) NULL,
+	[UserLevel_] [int] NULL,
+	[Aut_] [decimal](18, 0) NULL,
+	[CQ_] [int] NULL,
+	[Curves_] [int] NULL,
+	[Start_] [decimal](18, 2) NULL,
+	[Duration_] [decimal](18, 2) NULL,
+	[Libero1] [nvarchar](10) NULL,
+	[Libero2] [nvarchar](10) NULL,
+	[RampPh1] [decimal](18, 2) NULL,
+	[VelPh1] [decimal](18, 2) NULL,
+	[VelPh2] [decimal](18, 2) NULL,
+	[VelBr] [decimal](18, 2) NULL,
+	[VelRet] [decimal](18, 2) NULL,
+	[PreAll] [decimal](18, 2) NULL,
+	[RejectedSet] [decimal](18, 0) NULL,
+	[SecondSet] [decimal](18, 0) NULL,
+	[StartPh2] [decimal](18, 2) NULL,
+	[StartBr] [decimal](18, 2) NULL,
+	[libero_set_1] [nvarchar](10) NULL,
+	[AverageP] [decimal](18, 2) NULL,
+	[TimePh1] [decimal](18, 2) NULL,
+	[TimePh2] [decimal](18, 2) NULL,
+	[AveragePh1] [decimal](18, 2) NULL,
+	[AveragePh2] [decimal](18, 2) NULL,
+	[MaxPh1] [decimal](18, 2) NULL,
+	[MaxPh2] [decimal](18, 2) NULL,
+	[MaxP] [decimal](18, 1) NULL,
+	[MaxStroke] [decimal](18, 1) NULL,
+	[FastStroke] [decimal](18, 1) NULL,
+	[FillTime] [decimal](18, 2) NULL,
+	[TFurnace] [decimal](18, 1) NULL,
+	[TNozzle] [decimal](18, 1) NULL,
+	[TGooseneck] [decimal](18, 1) NULL,
+	[RejectedPieces] [decimal](18, 0) NULL,
+	[Ausiliario] [decimal](18, 2) NULL,
+	[Quality] [decimal](18, 0) NULL,
+	[P_per_PQ2] [decimal](18, 2) NULL,
+	[Q2_per_PQ2] [decimal](18, 2) NULL,
+	[AveragePh1Toll] [decimal](18, 0) NULL,
+	[AveragePh2Toll] [decimal](18, 0) NULL,
+	[MaxPToll] [decimal](18, 0) NULL,
+	[MaxStrokeToll] [decimal](18, 0) NULL,
+	[FastStrokeToll] [decimal](18, 0) NULL,
+	[FillTimeToll] [decimal](18, 0) NULL,
+	[TFurnaceToll] [decimal](18, 0) NULL,
+	[TNozzleToll] [decimal](18, 0) NULL,
+	[TGooseNeckToll] [decimal](18, 0) NULL,
+	[RejectedPiecesToll] [decimal](18, 0) NULL,
+	[MachineCODE] [nvarchar](30) NULL,
+	[NumberITEM] [nvarchar](30) NULL,
+	[Checkifbad] [bit] NULL,
+	[Other1] [nvarchar](30) NULL,
+	[Other2] [nvarchar](30) NULL,
+	[StopProduction] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+
