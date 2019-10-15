@@ -93,10 +93,11 @@ namespace TeamSystem.Customizations
              * di qualsiasi tipo con codici articolo MOLTIPLICA, CAMBIAARTICOLO, CAMBIAEVENTO
              */
 
-            var articleBaseEvent = (e.Unit as ArticleBaseEvent);
+            var articleBaseEvent = (e.Unit as ArticleBaseEvent); // passano tutti gli eventi con articolo
             if (articleBaseEvent == null)
                 return; //in genere manipolazione ha senso solo per eventi legati ad articolo
 
+            // col simulatore mandare uno start sulla macchina 040_MANIP con articolo MOLTIPLICA
             if (articleBaseEvent.Article.Article == "MOLTIPLICA")
             {
                 /*
@@ -135,6 +136,7 @@ namespace TeamSystem.Customizations
                  *
                  */
 
+                // richiesta lavorazioni attive per la risorsa
                 var jobs = this._MesManager.Controller.GetJobsInfos(e.Resource);
                 if (jobs != null && jobs.Any())
                     return; //almeno una lavorazione attiva
@@ -150,11 +152,7 @@ namespace TeamSystem.Customizations
                 e.ManipulationMode = ProcessingDataManipulationMode.Replace;
             }
         }
-
-
-
-
-
+        
         /// <summary>
         /// Evento cancellabile di notifica pre-accodamento in processor risorsa
         /// CANCELLABILE
@@ -166,6 +164,7 @@ namespace TeamSystem.Customizations
             DataUnitEvent unit = e.Unit;
             //e.Cancel = true: annulla l'operazione
         }
+
         /// <summary>
         /// Evento per la notifica di inizio procedura di elaborazione
         /// di un evento di produzione, con possibilità di cancellazione

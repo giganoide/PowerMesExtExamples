@@ -300,7 +300,7 @@ namespace TeamSystem.Customizations
 
 
             var dbUserName = string.Empty; //TODO: inserire qui user e psw per accesso sql. in DieCastingDataAccessHub sono rpevisti dei default
-            var dbPassword =string.Empty;
+            var dbPassword = string.Empty;
 
             var dataAccess = new DieCastingDataAccessHub(sqlInstanceName, dbUserName, dbPassword, this._MesLogger);
             if (!dataAccess.CheckConnection())

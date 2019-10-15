@@ -44,9 +44,9 @@ namespace TeamSystem.Customizations
             this._Logger.WriteMessage(MessageLevel.Diagnostics, true, LOGSOURCE,
                 "Estensione creata!");
 
-            this._MesManager.FileWatcherConnectors.DataSource.ProcessingAllData += DataSource_ProcessingAllData;
             this._MesManager.FileWatcherConnectors.DataSource.BeforeProcessingFiles += DataSource_BeforeProcessingFiles;
             this._MesManager.FileWatcherConnectors.DataSource.QueryForExternalDataFileHandling += DataSource_QueryForExternalDataFileHandling;
+            this._MesManager.FileWatcherConnectors.DataSource.ProcessingAllData += DataSource_ProcessingAllData;
             this._MesManager.FileWatcherConnectors.DataSource.ProcessingDataLine += DataSource_ProcessingDataLine;
             this._MesManager.FileWatcherConnectors.DataSource.ProcessingParsingError += DataSource_ProcessingParsingError;
             this._MesManager.FileWatcherConnectors.DataSource.ProcessingPatternError += DataSource_ProcessingPatternError;
@@ -75,8 +75,6 @@ namespace TeamSystem.Customizations
          * che devono essere elaborati tramite gli eventi
          * DataSource_BeforeProcessingFiles e DataSource_QueryForExternalDataFileHandling
          * da considerare mutualmente esclusivi.
-         *
-         *
          */
 
         /// <summary>

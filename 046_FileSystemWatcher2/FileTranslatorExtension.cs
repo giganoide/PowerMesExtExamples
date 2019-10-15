@@ -94,7 +94,7 @@ namespace TeamSystem.Customizations
             if (!mustProcess)
                 return;
 
-            //trasformazione
+            //trasformazione (logica in classe separata)
             var translator = new DataFileTranslator(e.Connector, this._Logger);
 
             var translationResult = translator.Translate(e.Data);

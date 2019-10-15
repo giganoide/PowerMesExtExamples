@@ -51,6 +51,7 @@ namespace TeamSystem.Customizations
             {
                 var memento = this.LoadResourceMemento(e.Resource.Name);
 
+                // posso azzerare il contatore quando cambia l'articolo ad esempio
                 memento.Articolo = doneEvent.Article.Article;
                 memento.Contatore += doneEvent.Quantity;
 
@@ -106,7 +107,7 @@ namespace TeamSystem.Customizations
                 LOGGERSOURCE,
                 "PROVA_" + resourceName);
 
-            var mementoJson = JsonSerializer.SerializeObject(memento);
+            var mementoJson = JsonSerializer.SerializeObject(memento);  // è quello in support
 
             //aggiornamento valori memorizzati su db locale PowerMES con parametri vari
             processingMementoContainer.ApplyValue(mementoJson, typeof(TestMemento), true);

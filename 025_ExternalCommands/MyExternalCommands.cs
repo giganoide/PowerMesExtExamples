@@ -53,6 +53,7 @@ namespace TeamSystem.Customizations
                                 ? e.Parameters.ToList()
                                 : new List<ExternalCommandValue>();
 
+            // attenzione CommandCode deve essere univoco a livello di applicazione
             if (e.CommandCode == "PIANO_LAVORO"
                 && paramList.Count == 1)
             {
