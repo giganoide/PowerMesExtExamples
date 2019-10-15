@@ -229,13 +229,5 @@ namespace TeamSystem.Customizations
              *
              */
         }
-
-
-
-
-
-
-
-
     }
 }

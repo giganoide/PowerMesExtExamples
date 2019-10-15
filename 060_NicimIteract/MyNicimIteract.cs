@@ -22,6 +22,8 @@ namespace TeamSystem.Customizations
         private IMesManager _MesManager = null;
         private IMesAppLogger _Logger = null;
 
+        private readonly object SyncObj = new object();
+
         #region IMesExtension members
 
         /// <summary>
@@ -83,54 +85,58 @@ namespace TeamSystem.Customizations
             if (e.Resource.Name != "RISORSA_LAVORAZIONI_IN_CORSO")
                 return;
 
-            var startEvent = (e.Unit as ArticleStartedEvent);
-            if (startEvent == null)
-                return;
-
-            var runningOperations = this.GetResourceNicimRunningOperations(e.Resource);
-
-            /*
-             * carico le lavorazioni aperte tenendo conto solo di ordini singoli (non cuciti)
-             * e delle bolle madri se cuciti: in genere non è necessario gestire tutte le bolle figlie.
-             * Se me ne serve solo una ordino ad esempio per data ultima dichiarazione,
-             * oppure si può valutare lo stato
-             */
-
-            var runningOperation = runningOperations.Where(o => o.StitchingRelation != StitchingRelationType.Child)
-                                                    .OrderBy(o => o.LastProgressDate)
-                                                    .FirstOrDefault();
-            if (runningOperation == null)
+            lock (this.SyncObj)
             {
-                //nessuna lavorazione attiva su NICIM
-                //TODO: inviare una notifica al responsabile di produzione?
-                return;
+                var startEvent = (e.Unit as ArticleStartedEvent);
+                if (startEvent == null)
+                    return;
+
+                var runningOperations = this.GetResourceNicimRunningOperations(e.Resource);
+
+                /*
+                 * carico le lavorazioni aperte tenendo conto solo di ordini singoli (non cuciti)
+                 * e delle bolle madri se cuciti: in genere non è necessario gestire tutte le bolle figlie.
+                 * Se me ne serve solo una ordino ad esempio per data ultima dichiarazione,
+                 * oppure si può valutare lo stato
+                 */
+
+                var runningOperation = runningOperations.Where(o => o.StitchingRelation != StitchingRelationType.Child)
+                    .OrderBy(o => o.LastProgressDate)
+                    .FirstOrDefault();
+                if (runningOperation == null)
+                {
+                    //nessuna lavorazione attiva su NICIM
+                    //TODO: inviare una notifica al responsabile di produzione?
+                    return;
+                }
+
+                //assegno ordine a evento PowerMES
+                startEvent.WorkOrder = runningOperation.Order;
+
+
+                Debug.WriteLine(
+                    $"ORDINE: {runningOperation.Order} FASE: {runningOperation.Phase} ARTICOLO: {runningOperation.PartNumber} "
+                    + $"ATTIVITA: {runningOperation.ActivityType} STATO: {runningOperation.LastProgressState.ToString()}");
+
+                /*
+                 * NicimActivityType (possibili attività associate ad una lavorazione)
+                 * Unknown: Non disponibile\sconosciuta
+                 * Setup: Preparazione
+                 * StartUp: Avviamento (non gestito da PowerMES)
+                 * Work: Lavoro
+                 * Maintenance: Manutenzione
+                 */
+
+                /*
+                 * NicimProgressState
+                 * Unknown: Non disponibile\sconosciuta
+                 * Start: Iniziata
+                 * Restart: Ripresa
+                 * Suspended: Sospesa
+                 */
             }
-
-            //assegno ordine a evento PowerMES
-            startEvent.WorkOrder = runningOperation.Order;
-
-
-            Debug.WriteLine($"ORDINE: {runningOperation.Order} FASE: {runningOperation.Phase} ARTICOLO: {runningOperation.PartNumber} " 
-                            + $"ATTIVITA: {runningOperation.ActivityType} STATO: {runningOperation.LastProgressState.ToString()}");
-
-            /*
-             * NicimActivityType (possibili attività associate ad una lavorazione)
-             * Unknown: Non disponibile\sconosciuta
-             * Setup: Preparazione
-             * StartUp: Avviamento (non gestito da PowerMES)
-             * Work: Lavoro
-             * Maintenance: Manutenzione
-             */
-
-            /*
-             * NicimProgressState
-             * Unknown: Non disponibile\sconosciuta
-             * Start: Iniziata
-             * Restart: Ripresa
-             * Suspended: Sospesa
-             */
         }
-
+        
         /*
          * SCENARIO 2:
          * Quando una risorsa viene messa in setup, inviamo in macchina
@@ -232,6 +238,5 @@ namespace TeamSystem.Customizations
                        ? new List<NicimRunningOperation>()
                        : runningOperations.ToList();
         }
-
     }
 }

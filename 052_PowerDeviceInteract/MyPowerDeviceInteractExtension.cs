@@ -249,11 +249,5 @@ namespace TeamSystem.Customizations
                                                                 orderWriteResponse.Success,
                                                                 qtyWriteResponse.Success);
         }
-
-
-
-
-
-
     }
 }
