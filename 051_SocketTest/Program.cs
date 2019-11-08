@@ -23,7 +23,7 @@ namespace SocketTest
             public void WriteMessage(MessageLevel level, bool sendToUi, string source, string message)
             {
                 Console.ForegroundColor = _Color;
-                Console.WriteLine($"{source}-{message}");
+                Console.WriteLine($"{message}");
             }
 
             public void WriteMessage(MessageLevel level, string source, string messageOrFormatString, params object[] args)
@@ -34,7 +34,7 @@ namespace SocketTest
             public void WriteMessage(MessageLevel level, bool sendToUi, string source, string messageOrFormatString, params object[] args)
             {
                 Console.ForegroundColor = _Color;
-                var message = $"{source}-{messageOrFormatString}";
+                var message = $"{messageOrFormatString}";
                 Console.WriteLine(message, args);
             }
 
@@ -53,10 +53,11 @@ namespace SocketTest
 
         static void Main(string[] args)
         {
-            var server = new SocketServer(new Logger(ConsoleColor.Cyan));
+            Console.WriteLine("Press any key to exit the process...");
+
+            var server = new TcpServer(new Logger(ConsoleColor.Cyan));
             server.StartListening();
             
-            Console.WriteLine("\nPress any key to exit the process...");
             Console.ReadKey();
         }
     }

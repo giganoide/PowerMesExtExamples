@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TcpServer.cs" />
     <Compile Include="StateObject.cs" />
     <Compile Include="MySocketExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -180,13 +180,15 @@ namespace TeamSystem.Customizations
         {
             var publisher = this.GetType().Name.ToUpper();
 
-            var templates = new List<ExternalCommandDescriptor>();
-            templates.Add(new ExternalCommandDescriptor(publisher,
-                EXTCMD_CHECKPROD,
-                new List<ExternalCommandValue>()
-                {
-                    new ExternalCommandValue("RESOURCE", string.Empty, ExternalCommandValueType.String),
-                }));
+            var templates = new List<ExternalCommandDescriptor>
+            {
+                new ExternalCommandDescriptor(publisher,
+                    EXTCMD_CHECKPROD,
+                    new List<ExternalCommandValue>()
+                    {
+                        new ExternalCommandValue("RESOURCE", string.Empty, ExternalCommandValueType.String),
+                    })
+            };
 
             this._MesManager.PublishExternalCommandsTemplates(templates);
         }

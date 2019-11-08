@@ -11,23 +11,21 @@ namespace SocketClient
     {
         static void Main(string[] args)
         {
-            var client = new SynchronousSocketClient();
+            var client = new MyTcpClient();
             client.Connect();
             Thread.Sleep(1000);
-            client.Send("I+ABCDE+10+20150316085013<EOF>");
+            client.Send("I+ABCDE+10+20150316085013");
             Thread.Sleep(500);
-            client.Send("F+ABCDE+10+1+20150316085510<EOF>");
+            client.Send("F+ABCDE+10+1+20150316085510");
             Thread.Sleep(1000);
-            client.Shutdown();
             client.Close();
 
             client.Connect();
             Thread.Sleep(3000);
-            client.Send("I+ABCDE+10+20150316085013<EOF>");
+            client.Send("I+ABCDE+10+20150316085013");
             Thread.Sleep(5000);
-            client.Send("F+ABCDE+10+1+20150316085510<EOF>");
+            client.Send("F+ABCDE+10+1+20150316085510");
             Thread.Sleep(1000);
-            client.Shutdown();
             client.Close();
 
             //var message = Console.ReadLine();
