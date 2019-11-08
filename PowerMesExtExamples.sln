@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "051_SocketTest", "051_Socke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "051_SocketClient", "051_SocketClient\051_SocketClient.csproj", "{62647C16-C50D-4AB4-93FB-BC810E23D667}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpListenerService", "TcpListenerService\TcpListenerService.csproj", "{A37C9915-84A8-4235-8E22-C9977A634BC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,6 +124,10 @@ Global
 		{62647C16-C50D-4AB4-93FB-BC810E23D667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62647C16-C50D-4AB4-93FB-BC810E23D667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62647C16-C50D-4AB4-93FB-BC810E23D667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A37C9915-84A8-4235-8E22-C9977A634BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37C9915-84A8-4235-8E22-C9977A634BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37C9915-84A8-4235-8E22-C9977A634BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37C9915-84A8-4235-8E22-C9977A634BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +135,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{936BDD90-AC87-47C2-985F-E28883D28C3B} = {AA53064C-A0F7-48C7-B626-10536CB90560}
 		{62647C16-C50D-4AB4-93FB-BC810E23D667} = {AA53064C-A0F7-48C7-B626-10536CB90560}
+		{A37C9915-84A8-4235-8E22-C9977A634BC7} = {AA53064C-A0F7-48C7-B626-10536CB90560}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B78295B1-775A-4775-BB11-33E09BB3DCD1}

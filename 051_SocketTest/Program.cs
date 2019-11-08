@@ -55,7 +55,7 @@ namespace SocketTest
         {
             Console.WriteLine("Press any key to exit the process...");
 
-            var server = new TcpServer(new Logger(ConsoleColor.Cyan));
+            var server = new TcpServer(new Logger());
             server.StartListening();
             
             Console.ReadKey();
