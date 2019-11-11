@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using Serilog;
-using Serilog.Events;
 using Topshelf.Logging;
 
 namespace TcpListenerServer
@@ -12,21 +14,27 @@ namespace TcpListenerServer
     public class TcpServer
     {
         private TcpListener tcpServer = null;
-        private const int PORT = 59567;
 
         private static LogWriter _logger;
+        private readonly int _port;
+        private readonly string _filePath;
+        private readonly Queue<string> messagesToWrite = new Queue<string>();
+        private readonly object writeFileLock = new object();
 
-        public TcpServer(LogWriter logger)
+        public TcpServer(LogWriter logger, int port = 59567, string filePath = "./fileToWatch.txt")
         {
             _logger = logger;
+            _port = port;
+            _filePath = filePath;
         }
 
         public void StartListening()
         {
-            Log($"StartListening at port {PORT}");
+            Log($"StartListening at port {_port}");
+            Log($"File will be written in {_filePath}");
             try
             {
-                tcpServer = new TcpListener(IPAddress.Any, PORT);
+                tcpServer = new TcpListener(IPAddress.Any, _port);
 
                 var tcpThread = new Thread(TCPServerProc)
                 {
@@ -50,7 +58,7 @@ namespace TcpListenerServer
             Log("StopListening: stop");
         }
 
-        private static void TCPServerProc(object arg)
+        private void TCPServerProc(object arg)
         {
             Log("Thread started");
 
@@ -70,7 +78,12 @@ namespace TcpListenerServer
                     {
                         int count;
                         while ((count = stream.Read(buffer, 0, buffer.Length)) != 0)
-                            Log(Encoding.ASCII.GetString(buffer, 0, count));
+                        {
+                            var message = Encoding.ASCII.GetString(buffer, 0, count);
+                            Log(message);
+                            WriteFile(message);
+                            //WriteFile(stream);
+                        }
                     }
 
                     client.Close();
@@ -88,6 +101,47 @@ namespace TcpListenerServer
             }
 
             Log("TCP server thread finished");
+        }
+
+        /*
+        private void WriteFile(Stream reader)
+        {
+            //using (var fileStream = new FileStream(_filePath, FileMode.Create, FileAccess.Write))
+            using (var fileStream = new FileStream("./FileStream.txt", FileMode.Append, FileAccess.Write))
+            {
+                reader.CopyTo(fileStream);
+            }
+        }
+        */
+
+        private void WriteFile(string message)
+        {
+            lock (writeFileLock)
+            {
+                try
+                {
+                    using (var streamWriter = File.AppendText(_filePath))
+                    {
+                        if (messagesToWrite.Count > 0)
+                        {
+                            Log($"Write {messagesToWrite.Count} messages stored");
+                            foreach (var messageStored in messagesToWrite)
+                                streamWriter.WriteLine(messageStored);
+
+                            messagesToWrite.Clear();
+                        }
+
+                        streamWriter.WriteLine(message);
+                        streamWriter.Flush();
+                    }
+
+                }
+                catch (Exception exception)
+                {
+                    Log(exception);
+                    messagesToWrite.Enqueue(message);
+                }
+            }
         }
 
         private static void Log(string message)

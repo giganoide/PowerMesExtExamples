@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Serilog;
+﻿using Serilog;
 using Topshelf;
 
 namespace TcpListenerServer
@@ -15,7 +13,6 @@ namespace TcpListenerServer
                 {
                     // here you can pass dependencies and configuration to the service
                     service.ConstructUsing(s => new TcpServerService());
-
                     service.WhenStarted(s => s.Start());
                     service.WhenStopped(s => s.Stop());
                 });
@@ -31,15 +28,16 @@ namespace TcpListenerServer
                 configure.UseSerilog(CreateLogger());
             });
         }
+
         private static ILogger CreateLogger()
         {
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log-{Date}.txt");
-
             var logger = new LoggerConfiguration()
                 .WriteTo.Console()
-                .WriteTo.File(filePath,rollingInterval:RollingInterval.Day, rollOnFileSizeLimit: true, fileSizeLimitBytes: 102400, restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug)
+                .WriteTo.File("log.txt", rollingInterval:RollingInterval.Day, rollOnFileSizeLimit: true, fileSizeLimitBytes: 102400, restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug)
                 .CreateLogger();
             return logger;
         }
+
+        
     }
 }

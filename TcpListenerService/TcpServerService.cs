@@ -8,11 +8,16 @@ namespace TcpListenerServer
         private TcpServer server;
         private readonly LogWriter _log = HostLogger.Get<TcpServerService>();
 
+
         public void Start()
         {
             _log.Info("Starting TcpServerService ...");
-            server = new TcpServer(_log);
+            _log.Info("Configuration reading...");
+            var config = ConfigurationManager.GetConfiguration();
+            _log.Info("Configuration loaded");
+            server = new TcpServer(_log, config.Port, config.FilePath);
             server.StartListening();
+            _log.Info("TcpServerService started");
         }
 
         public void Stop()
@@ -20,6 +25,7 @@ namespace TcpListenerServer
             _log.Info("Stopping TcpServerService ...");
             server.StopListening();
             server = null;
+            _log.Info("TcpServerService stopped");
         }
     }
 }
