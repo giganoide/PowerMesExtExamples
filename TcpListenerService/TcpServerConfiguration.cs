@@ -3,12 +3,12 @@
 namespace TcpListenerServer
 {
     [Serializable]
-    public class ServiceConfiguration
+    public class TcpServerConfiguration
     {
         public int Port { get; set; }
         public string FilePath { get; set; }
 
-        public ServiceConfiguration()
+        public TcpServerConfiguration()
         {
             Port = 59567;
             FilePath = "./fileToWatch.txt";

@@ -24,7 +24,7 @@ namespace TcpListenerServer
                 configure.SetServiceName("PowerTcpListener");
                 configure.SetDisplayName("Power TCP listener");
                 configure.SetDescription("Tcp listener service of PowerSuite");
-
+                
                 configure.UseSerilog(CreateLogger());
             });
         }
@@ -33,7 +33,7 @@ namespace TcpListenerServer
         {
             var logger = new LoggerConfiguration()
                 .WriteTo.Console()
-                .WriteTo.File("log.txt", rollingInterval:RollingInterval.Day, rollOnFileSizeLimit: true, fileSizeLimitBytes: 102400, restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug)
+                .WriteTo.File("log.txt", rollingInterval:RollingInterval.Day, rollOnFileSizeLimit: true, fileSizeLimitBytes: 102400, restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Error)
                 .CreateLogger();
             return logger;
         }

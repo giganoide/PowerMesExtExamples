@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationManager.cs" />
-    <Compile Include="ServiceConfiguration.cs" />
+    <Compile Include="TcpServerConfiguration.cs" />
     <Compile Include="TcpServerService.cs" />
     <Compile Include="TcpServer.cs" />
     <Compile Include="Program.cs" />

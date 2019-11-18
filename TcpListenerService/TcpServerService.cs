@@ -12,8 +12,9 @@ namespace TcpListenerServer
         public void Start()
         {
             _log.Info("Starting TcpServerService ...");
-            _log.Info("Configuration reading...");
-            var config = ConfigurationManager.GetConfiguration();
+            var configPath = ConfigurationManager.GetConfigPath();
+            _log.Info($"Load configuration from: {configPath}");
+            var config = ConfigurationManager.GetConfiguration(configPath);
             _log.Info("Configuration loaded");
             server = new TcpServer(_log, config.Port, config.FilePath);
             server.StartListening();
