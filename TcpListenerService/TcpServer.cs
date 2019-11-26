@@ -36,7 +36,7 @@ namespace TcpListenerServer
             {
                 tcpServer = new TcpListener(IPAddress.Any, _port);
 
-                var tcpThread = new Thread(TCPServerProc)
+                var tcpThread = new Thread(ListeningProcess)
                 {
                     IsBackground = true,
                     Name = "TCP server thread"
@@ -58,7 +58,7 @@ namespace TcpListenerServer
             Log("StopListening: stop");
         }
 
-        private void TCPServerProc(object arg)
+        private void ListeningProcess(object arg)
         {
             Log("Thread started");
 
@@ -73,7 +73,7 @@ namespace TcpListenerServer
                 {
                     var client = server.AcceptTcpClient();
                     Log("Client connected");
-
+                    
                     using (var stream = client.GetStream())
                     {
                         int count;
