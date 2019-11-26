@@ -21,6 +21,8 @@ namespace TcpListenerServer
         private readonly Queue<string> messagesToWrite = new Queue<string>();
         private readonly object writeFileLock = new object();
 
+        private volatile int _stopClientThread = 0;
+
         public TcpServer(LogWriter logger, int port = 59567, string filePath = "./fileToWatch.txt")
         {
             _logger = logger;
@@ -36,7 +38,7 @@ namespace TcpListenerServer
             {
                 tcpServer = new TcpListener(IPAddress.Any, _port);
 
-                var tcpThread = new Thread(ListeningProcess)
+                var tcpThread = new Thread(AcceptTcpClientProcess)
                 {
                     IsBackground = true,
                     Name = "TCP server thread"
@@ -58,36 +60,48 @@ namespace TcpListenerServer
             Log("StopListening: stop");
         }
 
-        private void ListeningProcess(object arg)
+        private void AcceptTcpClientProcess(object arg)
         {
-            Log("Thread started");
+            Thread clientThreadEven = null;
+            Thread clientThreadOdd = null;
+            ClientThreadArgs argsThreadEven = null;
+            ClientThreadArgs argsThreadOdd = null;
+
+            Log("TCP server thread started");
 
             try
             {
                 var server = (TcpListener)arg;
-                var buffer = new byte[2048];
-
                 server.Start();
 
                 for (; ; )
                 {
                     var client = server.AcceptTcpClient();
                     Log("Client connected");
-                    
-                    using (var stream = client.GetStream())
-                    {
-                        int count;
-                        while ((count = stream.Read(buffer, 0, buffer.Length)) != 0)
-                        {
-                            var message = Encoding.ASCII.GetString(buffer, 0, count);
-                            Log(message);
-                            WriteFile(message);
-                            //WriteFile(stream);
-                        }
-                    }
 
-                    client.Close();
-                    Log("Client closed");
+                    if (clientThreadEven == null || !clientThreadEven.IsAlive)
+                    {
+                        clientThreadEven = new Thread(SingleClientListeningProcess)
+                        {
+                            IsBackground = true,
+                            Name = "TCP client even thread"
+                        };
+                        argsThreadEven = new ClientThreadArgs(client, 1);
+                        argsThreadOdd?.TcpClient.Close();
+                        clientThreadEven.Start(argsThreadEven);
+                    }
+                    else
+                    {
+                        clientThreadOdd = new Thread(SingleClientListeningProcess)
+                        {
+                            IsBackground = true,
+                            Name = "TCP client odd thread"
+                        };
+                        argsThreadOdd = new ClientThreadArgs(client, 2);
+                        argsThreadEven.TcpClient.Close();
+                        clientThreadOdd.Start(argsThreadOdd);
+                    }
+                    
                 }
             }
             catch (SocketException ex)
@@ -101,6 +115,46 @@ namespace TcpListenerServer
             }
 
             Log("TCP server thread finished");
+        }
+
+        private void SingleClientListeningProcess(object arg)
+        {
+            Log("Client Thread started");
+
+            try
+            {
+                var threadArgs = (ClientThreadArgs) arg;
+                var client = threadArgs.TcpClient;
+                var instanceId = threadArgs.InstanceId;
+                var buffer = new byte[2048];
+
+                Log($"Client {instanceId} connected");
+
+                using (var stream = client.GetStream())
+                {
+                    int count;
+                    while ((count = stream.Read(buffer, 0, buffer.Length)) != 0)
+                    {
+                        var message = Encoding.ASCII.GetString(buffer, 0, count);
+                        Log(message);
+                        WriteFile(message);
+                    }
+                }
+
+                //client.Close();
+                Log($"Client {instanceId} closed");
+            }
+            catch (SocketException ex)
+            {
+                if (ex.ErrorCode != 10004) // unexpected
+                    Log(ex);
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+            }
+
+            Log("Client Thread finished");
         }
 
         /*
@@ -157,6 +211,18 @@ namespace TcpListenerServer
         private static void Log(LoggingLevel level, string message)
         {
             _logger.Log(level, message);
+        }
+    }
+
+    public class ClientThreadArgs
+    {
+        public TcpClient TcpClient { get; }
+        public int InstanceId { get; }
+
+        public ClientThreadArgs(TcpClient tcpClient, int instanceId)
+        {
+            TcpClient = tcpClient;
+            InstanceId = instanceId;
         }
     }
 }
