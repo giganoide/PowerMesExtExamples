@@ -31,6 +31,7 @@ La DLL deve essere posizionata in una sotto-cartella del percorso di installazio
 8. 040_CancelEvent: utilizzo degli eventi cancellabili
 9. 045_FileSystemWatcher: parsing di un file di una cartella monitorata
 10. 050_DbMonitor: utilizzo un db esterno per integrare informazioni
-11. 052_PowerDeviceInteract: interagire con PowerDevice
-12. 055_MesInteract: interagire con MES
-13. 060_NicimIteract: interagire con Nicim
+11. 051_Socket: lettura tramite un TcpListener
+12. 052_PowerDeviceInteract: interagire con PowerDevice
+13. 055_MesInteract: interagire con MES
+14. 060_NicimIteract: interagire con Nicim
