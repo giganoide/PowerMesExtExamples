@@ -84,17 +84,7 @@ namespace TeamSystem.Customizations
         private IMesManager _MesManager = null;
         private IMesAppLogger _MesLogger = null;
 
-        private readonly Guid _ComponentId = Guid.NewGuid(); //id specifico del componente (per scheduler)
-
-        private Guid
-            _DieCastingProductionActivityId = Guid.Empty; //id task per job schedulatore costruzione piani di lavoro
-
-        /*
-         * ManualResetEventSlim è una tipologia di lock qui usato per evitare che due
-         * esecuzioni del task ricorrente vadano in sovrapposizione
-         */
-        private readonly ManualResetEventSlim _DieCastingProdActivityRunningMres =
-            new System.Threading.ManualResetEventSlim(false); //per sincronizzazione attività ricorrente
+        private TcpServer tcpListener;
 
         #region IMesExtension members
 
@@ -119,11 +109,8 @@ namespace TeamSystem.Customizations
             this._MesLogger.WriteMessage(MessageLevel.Diagnostics, true, LOGRSOURCE,
                 "Estensione creata!");
 
-            this._MesManager.ProcessExternalCommand += Manager_ProcessExternalCommand;
-
-            //this.PublishExternalCommands();
-
-            //this.SetupDieCastingProductionActivity();
+            tcpListener = new TcpServer(this._MesLogger);
+            tcpListener.StartListening();
         }
 
         /// <summary>
@@ -132,80 +119,10 @@ namespace TeamSystem.Customizations
         /// </summary>
         public void Shutdown()
         {
-            this.RevokeExternalCommands();
-            this._MesManager.ProcessExternalCommand -= Manager_ProcessExternalCommand;
+            tcpListener.StopListening();
         }
 
         #endregion
-
-        #region external commands
-
-        /// <summary>
-        /// Gestione evento per elaborazione comandi esterni da CLIENTS
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Manager_ProcessExternalCommand(object sender, ExternalCommandsExecutionEventArgs e)
-        {
-            var paramList = e.Parameters != null
-                ? e.Parameters.ToList()
-                : new List<ExternalCommandValue>();
-
-            if (e.CommandCode == EXTCMD_CHECKPROD
-                && paramList.Count == 1)
-            {
-                var resourceName = paramList[0].GetConvertedValueToType<string>();
-
-                var resource = this._MesManager.ResourcesHandler.GetResource(resourceName);
-                if (resource == null)
-                {
-                    this._MesManager.AppendMessageToLog(MessageLevel.Diagnostics, "MySocket",
-                        "Risorsa non trovata (" + EXTCMD_CHECKPROD + ")");
-                    return;
-                }
-
-                this._MesManager.AppendMessageToLog(MessageLevel.Diagnostics, "MySocket",
-                    "EXTERNAL COMMAND (" + EXTCMD_CHECKPROD + ")");
-
-                this.SendArticle(resource.Name);
-            }
-        }
-
-        private void SendArticle(string article) { }
-
-        /// <summary>
-        /// Pubblica i comandi esterni specifici per la classe
-        /// </summary>
-        private void PublishExternalCommands()
-        {
-            var publisher = this.GetType().Name.ToUpper();
-
-            var templates = new List<ExternalCommandDescriptor>
-            {
-                new ExternalCommandDescriptor(publisher,
-                    EXTCMD_CHECKPROD,
-                    new List<ExternalCommandValue>()
-                    {
-                        new ExternalCommandValue("RESOURCE", string.Empty, ExternalCommandValueType.String),
-                    })
-            };
-
-            this._MesManager.PublishExternalCommandsTemplates(templates);
-        }
-
-        /// <summary>
-        /// Annulla la pubblicazione di comandi esterni specifici
-        /// </summary>
-        private void RevokeExternalCommands()
-        {
-            var publisher = this.GetType().Name.ToUpper();
-
-            this._MesManager.RevokeExternalCommandsTemplates(publisher);
-        }
-
-        #endregion
-
-        
 
     }
 }

@@ -15,6 +15,7 @@ namespace TeamSystem.Customizations
         private const int PORT = 59567;
 
         private static IMesAppLogger _MesLogger;
+        private Thread tcpThread;
 
         public TcpServer(IMesAppLogger mesLogger)
         {
@@ -28,7 +29,7 @@ namespace TeamSystem.Customizations
             {
                 tcpServer = new TcpListener(IPAddress.Any, PORT);
 
-                var tcpThread = new Thread(TCPServerProc)
+                tcpThread = new Thread(TCPServerProc)
                 {
                     IsBackground = true,
                     Name = "TCP server thread"
@@ -47,7 +48,10 @@ namespace TeamSystem.Customizations
 
         public void StopListening()
         {
-            Log("StopListening: stop");
+            Log("StopListening: stoping");
+            tcpThread.Abort();
+            tcpServer.Stop();
+            Log("StopListening: stoped");
         }
 
         private static void TCPServerProc(object arg)
@@ -70,7 +74,10 @@ namespace TeamSystem.Customizations
                     {
                         int count;
                         while ((count = stream.Read(buffer, 0, buffer.Length)) != 0)
+                        {
+                            /* *** Creazione comandi MES *** */
                             Log(Encoding.ASCII.GetString(buffer, 0, count));
+                        }
                     }
 
                     client.Close();
