@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -20,8 +18,6 @@ namespace TcpListenerServer
         private readonly string _filePath;
         private readonly Queue<string> messagesToWrite = new Queue<string>();
         private readonly object writeFileLock = new object();
-
-        private volatile int _stopClientThread = 0;
 
         public TcpServer(LogWriter logger, int port = 59567, string filePath = "./fileToWatch.txt")
         {
