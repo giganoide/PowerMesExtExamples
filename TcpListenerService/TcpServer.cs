@@ -119,13 +119,15 @@ namespace TcpListenerServer
 
         private void SingleClientListeningProcess(object arg)
         {
-            Log("Client Thread started");
+            var threadArgs = (ClientThreadArgs)arg;
+            var client = threadArgs.TcpClient;
+            var instanceId = threadArgs.InstanceId;
+
+            Log($"Client Thread [{instanceId}] started");
 
             try
             {
-                var threadArgs = (ClientThreadArgs) arg;
-                var client = threadArgs.TcpClient;
-                var instanceId = threadArgs.InstanceId;
+                
                 var buffer = new byte[2048];
 
                 Log($"Client {instanceId} connected");
@@ -154,7 +156,7 @@ namespace TcpListenerServer
                 Log(ex);
             }
 
-            Log("Client Thread finished");
+            Log($"Client Thread [{instanceId}] finished");
         }
 
         /*
