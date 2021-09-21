@@ -69,8 +69,6 @@ namespace TeamSystem.Customizations
          * (a Nicim non inviamo mai l'ordine, fa lui associazioni articolo\fase -> ordine)
          * quindi recuperiamo l'ordine della lavorazione attiva da Nicim e la assegnamo
          * alla lavorazione PowerMES.
-         * NB: il workorder può essere imputato ad una lavorazione PowerMES solo
-         *     con eventi di INIZIO
          *
          */
 

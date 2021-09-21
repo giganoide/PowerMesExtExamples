@@ -162,7 +162,7 @@ namespace TeamSystem.Customizations
         private void Controller_BeforeDataUnitProcessorQueueUp(object sender, ResourceDataUnitCancelEventArgs e)
         {
             DataUnitEvent unit = e.Unit;
-            //e.Cancel = true: annulla l'operazione
+            //e.Cancel = true; // annulla l'operazione
         }
 
         /// <summary>

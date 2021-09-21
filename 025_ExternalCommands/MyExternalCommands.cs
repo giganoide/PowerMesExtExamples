@@ -84,6 +84,8 @@ namespace TeamSystem.Customizations
 
 
                 //TODO esecuzione azione
+                //this._MesManager.AppendMessageToLog(MessageLevel.Diagnostics, "WorkPlanBuilderExtension", "I AM HERE");
+                this._Logger.WriteMessage(MessageLevel.Warning, true, LOGGERSOURCE, "I AM HERE");
             }
         }
 

@@ -25,7 +25,7 @@ namespace TeamSystem.Customizations
          * SCENARIO
          * Un robot ci fornisce informazioni relative alla lavorazione tramite un socket tcp
          * L'extension genera eventi di produzione di inizio-fine-sospensione.
-         * Sono utilizzati attributi per attivare la funzionalità e per la parametrizzazione dellla connessione
+         * Sono utilizzati attributi per attivare la funzionalità e per la parametrizzazione della connessione
          *
          *
          * Esempio di file dati con eventi di produzione:

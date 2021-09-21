@@ -123,7 +123,7 @@ namespace TeamSystem.Customizations
         private void GammaMesRepeater_QueryForAlternateCommandTargetResource(object sender, GammaMesResourceProcessingEventArgs e)
         {
             /*
-             *la mappatura tra risorse PowerMES e MES è statica e stabilita
+             * la mappatura tra risorse PowerMES e MES è statica e stabilita
              * in fase di configurazione.
              * E' però possibile modificare la mappatura dinamicamente per ogni chiamata
              * al web service di MES.

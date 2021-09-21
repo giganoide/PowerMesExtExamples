@@ -253,10 +253,5 @@ namespace TeamSystem.Customizations
                 }
             }
         }
-
-
-
-
-
     }
 }
