@@ -46,9 +46,8 @@ namespace TeamSystem.Customizations
 
         private void Controller_BeforeProcessingEvent(object sender, ResourceDataUnitEventArgs e)
         {
-
             if (e.Unit is ProductDoneEvent doneEvent)
-                this._Logger.WriteMessage(MessageLevel.Diagnostics,false, LOGGERSOURCE, $"{doneEvent.Quantity}");
+                this._Logger.WriteMessage(MessageLevel.Diagnostics,false, LOGGERSOURCE, $"This is the quantity: {doneEvent.Quantity}");
         }
     }
 }
